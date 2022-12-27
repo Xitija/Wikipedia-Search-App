@@ -33,6 +33,10 @@ button {
     padding: 10px;
 }
 
+#resultsList h2{
+    margin-block-start: 0em;
+}
+
 .resultItem {
     background: #f8f5f1;
     border-radius: 3px;
@@ -49,6 +53,11 @@ button {
 
 .resultTitle a {
     color: rgb(13, 13, 51);
+}
+
+#listEmpty {
+    padding-left: 20%;
+    margin: auto;
 }
 
 .footer {

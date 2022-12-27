@@ -1,6 +1,9 @@
 let searchForm = document.getElementById("searchForm");
 let searchInput = document.getElementById("searchInput");
 let resultList = document.getElementById("resultsList");
+let listEmpty = document.getElementById("listEmpty");
+
+listEmpty.style.display  = "none";
 
 searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -34,10 +37,20 @@ function resultsOnPage(searchList) {
     `<h2>Search Results for ${searchInput.value} </h2>`
   );
 
+  if (!searchList.length) {
+    resultsList.innerHTML = " ";
+    resultsList.insertAdjacentHTML(
+      "beforeend",
+      `<h2>No Results found for ${searchInput.value} </h2>`
+    );
+    listEmpty.style.display  = "block";
+  }
+
   searchList.forEach(function (item) {
     let itemTitle = item.title;
     let itemSnippet = item.snippet;
     let itemUrl = encodeURI(`https://en.wikipedia.org/wiki/${item.title}`);
+    listEmpty.style.display  = "none";
 
     resultsList.insertAdjacentHTML(
       "beforeend",
